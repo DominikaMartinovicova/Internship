@@ -1,0 +1,35 @@
+
+all:
+  data_dir: "data/"        # Specify main data directory
+  plot_dir: "plots/"       # Specify main plot directory
+  datasets:                # Specify datasets as a list
+    - "GSE182109"
+    - "GSE163120"
+    - "Neftel_broadSC"
+    - "McGill"
+    - "Verhaak_synapse"
+    - "OMIX920_A"
+    - "OMIX920_GBM"
+    - "OMIX920"
+    - "GSE278450"
+    - "GSE260928"
+    - "GSE182109_bSC"
+  phenotypes:
+    - "immune"
+    - "myeloid"
+
+filtering:
+  default:
+    max_genes: 6000
+    min_genes: 0         # Minimal expressed genes per cell
+    max_mt_pct: 10       # Maximal %-age of MT genes per cell
+    min_cells: 50        # Minimal cells expressing a gene
+
+  specific:
+    GSE163120:
+      max_genes: 4000    # Override max_genes specifically for GSE163120
+
+clustering:
+  n_pcs: 25              # Number of principal components to consider
+  n_neighbors: 20        # Number of neighbors for knn graph
+  resolution: 1          # Resolution for clustering (low means fewer clusters)
